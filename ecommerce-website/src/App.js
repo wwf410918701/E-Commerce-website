@@ -16,13 +16,6 @@ import CheckOut from './pages/checkout/checkout.component';
 
 
 class App extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      currentUser: null
-    }
-  }
-  
   unsubscribeFromAuth = null
 
   componentDidMount() {
@@ -52,7 +45,7 @@ class App extends React.Component {
       <div>
         <Header/>
         <Switch>
-          <Route exact path='/shop' component={ShopPage}/>
+          <Route path='/shop' component={ShopPage}/>
           <Route exact path='/signin' render={() => (this.props.currentUser? <Redirect to='/' /> : <SignInAndSignUp />)}/>
           <Route exact path='/checkout' component={CheckOut}></Route>
           <Route exact path='/' component={HomePage}/>
