@@ -1,9 +1,9 @@
 import React from "react";
-import './sign-in.styles.scss';
 import FormInput from "../form-input/form-input.component";
-import CustomButton from "../custom-button/custom-button.component";
 import { signInWithGoogle } from "../../firebase/firebase.utils";
 import { auth } from "../../firebase/firebase.utils";
+import { CustomButtonContainer } from "../custom-button/custom-button.styles";
+import { SignInContainer, SignInTitle, SignInButtonContainer } from "./sigin-in.styles";
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -32,9 +32,11 @@ class SignIn extends React.Component {
 
     render() {
         return(
-            <div className='sign-in' >
-                <h2>I already have an account</h2>
-                <span>Sign in with your email and password</span>
+            <SignInContainer>
+                <SignInTitle>
+                    <h2>I already have an account</h2>
+                    <span>Sign in with your email and password</span>
+                </SignInTitle>
                 <form onSubmit={this.handleSubmit}>
                     <FormInput name='email' type="email"  onChange={this.handleChange} value={this.state.email} label='email' required />
                     <FormInput 
@@ -45,16 +47,16 @@ class SignIn extends React.Component {
                         label='password'
                         required
                     />
-                    <div className='buttons'>
-                        <CustomButton type="submit">
+                    <SignInButtonContainer>
+                        <CustomButtonContainer type="submit">
                             Sign in
-                        </CustomButton>
-                        <CustomButton onClick={signInWithGoogle} isGoogleSigin>
+                        </CustomButtonContainer>
+                        <CustomButtonContainer onClick={signInWithGoogle} isGoogleSignIn>
                             Sign in with Google
-                        </CustomButton>
-                    </div>
+                        </CustomButtonContainer>
+                    </SignInButtonContainer>
                 </form>
-            </div>
+            </SignInContainer>
         )
     }
 }

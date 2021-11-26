@@ -1,12 +1,12 @@
 import React from "react";
 import Diretory from "../../components/diretory/diretory.component"
-import './homepage.styles.scss'
+import { HomePageContainer } from "./homepage.styles";
 
 const HomePage = () => {
     return(
-        <div className='homePage'>
+        <HomePageContainer>
             <Diretory/>
-        </div>
+        </HomePageContainer>
     )
 }
 
