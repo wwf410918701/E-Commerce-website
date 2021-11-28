@@ -12,6 +12,8 @@ import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import CheckOut from './pages/checkout/checkout.component';
+import { selecctCollectionsForPreview } from './redux/shop/shop.selectors';
+import { createStructuredSelector } from 'reselect';
 
 
 
@@ -19,7 +21,8 @@ class App extends React.Component {
   unsubscribeFromAuth = null
 
   componentDidMount() {
-    const { setCurrentUser } = this.props
+    const { setCurrentUser, collectionsArray } = this.props
+    
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth =>{
       if(userAuth) {
         const userRef = await createUserProfileDocument(userAuth)
@@ -34,6 +37,7 @@ class App extends React.Component {
         setCurrentUser(userAuth) // When it is null
       }
     })
+
   }
 
   componentWillUnmount() {
@@ -54,8 +58,9 @@ class App extends React.Component {
   );}
 }
 
-const mapStateToProps = (user) => ({
-  currentUser: selectCurrentUser(user)
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  collectionsArray: selecctCollectionsForPreview
 })
 
 const mapDispatchToProps = dispatch => ({
