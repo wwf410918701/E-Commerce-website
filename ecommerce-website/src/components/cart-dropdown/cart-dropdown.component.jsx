@@ -6,7 +6,7 @@ import { selectCartItems } from "../../redux/cart/cart.selectors";
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { toggleCartHidden } from '../../redux/cart/cart.actions'
-import { CartDropdownContainer, CartItemsContainer, CartDropDownButton } from "./cart-dropdown.styles";
+import { CartDropdownContainer, CartItemsContainer, CartDropDownButton, EmptyMessage } from "./cart-dropdown.styles";
 
 const CartDropdown = ({ cartItems, history, dispatch }) => {
     return (
@@ -20,7 +20,7 @@ const CartDropdown = ({ cartItems, history, dispatch }) => {
                 )
                   :
                 (
-                    <span className='empty-message'>Your cart is empty</span>
+                    <EmptyMessage>Your cart is empty</EmptyMessage>
                 )
             }
         </CartItemsContainer>
