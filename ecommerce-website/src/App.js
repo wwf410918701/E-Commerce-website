@@ -5,19 +5,20 @@ import {Route, Switch, Redirect} from 'react-router-dom'
 import Header from './components/header/header.component';
 import SignInAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import React, { useEffect} from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { checkUserSession } from './redux/user/user.actions';
 import CheckOut from './pages/checkout/checkout.component';
 import { selectCurrentUser } from './redux/user/user.selectors';
-import { createStructuredSelector } from 'reselect';
 
 
 
-const App = ({ checkUserSession, currentUser }) => {
+const App = () => {
+  const currentUser = useSelector(selectCurrentUser)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    checkUserSession()
-  }, [checkUserSession]) 
+    dispatch(checkUserSession())
+  }, [dispatch]) 
 
   return (
     <div>
@@ -32,13 +33,4 @@ const App = ({ checkUserSession, currentUser }) => {
   );
 }
 
-
-const mapDispatchToProps = dispatch => ({
-  checkUserSession: user => dispatch(checkUserSession())
-});
-
-const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
