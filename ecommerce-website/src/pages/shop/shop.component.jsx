@@ -1,11 +1,10 @@
-import React, { Component,useEffect } from "react";
+import React, { useEffect } from "react";
 import { Route } from 'react-router-dom';
 import ContainerCollectionPage from "../../components/collection/collection.container";
 import { connect } from "react-redux";
 import { fetchCollectionStart } from "../../redux/shop/shop.actions";
-import { createStructuredSelector } from "reselect";
-import { selectIsCollectionsLoaded } from "../../redux/shop/shop.selectors";
 import CollectionOverviewContainer from "../../components/collection-overview/collection-overview.container";
+import { ShopPageContainer } from "./shop.styles";
 
 
 const ShopPage = ({ fetchCollectionStart, match }) => {
@@ -14,10 +13,10 @@ const ShopPage = ({ fetchCollectionStart, match }) => {
     }, [fetchCollectionStart])
 
     return (
-        <div className='shop-page'>
+        <ShopPageContainer>
             <Route exact path={`${match.path}`} component={CollectionOverviewContainer} />
             <Route path={`${match.path}/:collectionId`} component={ContainerCollectionPage} />
-        </div>
+        </ShopPageContainer>
     )  
 }
 

@@ -12,7 +12,7 @@ const CollectionItem = ({item, addItem}) => {
             />
             <CollectionItemFooterContainer>
                 <CollectionItemNameContainer className='name'>{name}</CollectionItemNameContainer>
-                <CollectionItemPriceContainer className='price'>{price}</CollectionItemPriceContainer>
+                <CollectionItemPriceContainer className='price'>{`$${price}`}</CollectionItemPriceContainer>
             </CollectionItemFooterContainer>
             <CollectionItemButtonContainer inverted onClick = {() => addItem(item)}>ADD TO CART</CollectionItemButtonContainer>
         </CollectionItemContainer>
