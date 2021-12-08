@@ -21,6 +21,9 @@ export const MenuItemContainer = styled.div`
 
     &.large{
         height: 380px;
+        @media screen and (max-width: 800px) {
+            height: 200px;
+        }
     }
 
     &:hover {
@@ -34,6 +37,9 @@ export const MenuItemContainer = styled.div`
         & .content {
             opacity: 0.9;
         }
+    }
+    @media screen and (max-width: 800px) {
+        height: 200px;
     }
 `
 
@@ -56,7 +62,11 @@ export const MenuItemContent = styled.div`
     position: absolute;
     background-color: white;
     opacity: 0.7;
+    @media screen and (max-width: 600px) {
+        padding: 0 10px;
+    }
 `
+
 export const MenuItemTitle = styled.h1`
     font-weight: bold;
     margin-bottom: 6px;

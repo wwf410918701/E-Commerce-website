@@ -1,4 +1,3 @@
-import './App.css';
 import HomePage from './pages/homepage/homepage.component'
 import ShopPage from './pages/shop/shop.component'
 import {Route, Switch, Redirect} from 'react-router-dom'
@@ -9,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { checkUserSession } from './redux/user/user.actions';
 import CheckOut from './pages/checkout/checkout.component';
 import { selectCurrentUser } from './redux/user/user.selectors';
+import { GlobalStyle } from './global.styles';
 
 
 
@@ -22,6 +22,7 @@ const App = () => {
 
   return (
     <div>
+      <GlobalStyle />
       <Header/>
       <Switch>
         <Route path='/shop' component={ShopPage}/>
