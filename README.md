@@ -15,7 +15,7 @@
 ## 由于需要个人秘钥等导致的无法启动
 若希望本地启动可能会因没有更新软件中密钥等信息发生错误。
 ### FireStore
-https://firebase.google.com/
+    https://firebase.google.com/
 由于有基于firestore的登录、信息存储功能，因此若本地启动需要先注册firestore账户，从firestore网站中获得账户配置信息，并把配置信息更新到firebase.utils.js文件中的config变量中
 ### Stripe
     https://stripe.com/zh-cn-hk
