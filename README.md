@@ -15,13 +15,11 @@
 ## 由于需要个人秘钥等导致的无法启动
 若希望本地启动可能会因没有更新软件中密钥等信息发生错误。
 ### FireStore
+https://firebase.google.com/
 由于有基于firestore的登录、信息存储功能，因此若本地启动需要先注册firestore账户，从firestore网站中获得账户配置信息，并把配置信息更新到firebase.utils.js文件中的config变量中
-    https://firebase.google.com/
-Firebase官网
 ### Stripe
-由于测试支付功能的Stripe组件需要提供个人密钥，因此需要注册stripe账户后从stripe网站获取个人test模式下的publishableKey并更新到stripe-button.component中的publishableKey变量下。此外还需获取test模式下的STRIPE_SECRET_KEY并更新到.env文件中（若缺少.env文件则需要在src目录下新建）
     https://stripe.com/zh-cn-hk
-Stripe官网
+由于测试支付功能的Stripe组件需要提供个人密钥，因此需要注册stripe账户后从stripe网站获取个人test模式下的publishableKey并更新到stripe-button.component中的publishableKey变量下。此外还需获取test模式下的STRIPE_SECRET_KEY并更新到.env文件中（若缺少.env文件则需要在src目录下新建）
 ### 联系我
 邮箱：wwf410918701@126.com
 微信：wwf410918701
